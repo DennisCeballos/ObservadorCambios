@@ -1,0 +1,11 @@
+Accionador{
+    (a/b/c)
+    (palabras)
+}
+Observador{
+    ubcX
+    ubcY
+    color1
+    color2
+    color3
+}
