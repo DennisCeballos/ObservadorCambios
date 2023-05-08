@@ -270,51 +270,9 @@ def MenuInicio():
     #En caso sea el inicio normal, ejecutar el programa de la forma mas basica
     if entrada==1:
         
-        #Desde aca se trabaja para el objeto Observador
-        print("Primero elige, deseeas ayuda para recopilar los datos?")
-        print("a. Utilizar asistente de ubicacion")
-        print("b. Ingresar datos manualmente")
-        entrada = input()
-
-        if entrada=="a":
-            print("Observa un rato la pantalla y apunta tus datos")
-            ubcX, ubcY, cR, cG, cB = pedirAyudita()
-            #print("A ver si funciono ")
-            #print(ubcX, ubcY, cR, cG, cB)
-
-        elif entrada=="b":
-            print("Primero ingresa a donde quieres que observe (separado el X e Y por un espacio)")
-            ubcX, ubcY = input().split(" ")
-            ubcX = int(ubcX)
-            ubcY = int(ubcY)
-
-            print("Que color debo esperar encontrar")
-            cR,cG,cB = input().split()
-            cR = int(cR)
-            cG = int(cG)
-            cB = int(cB)
-
-
-        #Desde aqui se trabaja para el objeto Accionador
-        print("Que tipo de accion deseas?")
-        print("a. Mostrar mensaje en la pantalla")
-        print("b. Abrir un link en el buscador")
-
-        entrada = input()
-        if entrada==("a"):
-            print("Que mensaje quieres que se muestre?")
-        elif entrada==("b"):
-            print("Que link quieres que se abra?")
-
-        palabra = input()
-
-
-        #Se crea el objeto accionador con los datos ingresados
-        accionador = Accionador(entrada, palabra)
-
-        #Recien se puede crear al observador ya que necesita de un accionador
-        observador = Observador(ubcX, ubcY, cR, cG, cB, accionador)
-
+        observador = pasosCrearObservador()
+        accionador = pasosCrearAccionador()
+        observador.setAccionador(accionador)
         observador.Observar()
 
     #Se ejecuta el programa con el observador y accionador que este en el archivo guardado
@@ -376,7 +334,6 @@ LISTADO DE COSAS QUE FALTAN:
         Que se cree el file en caso ne exista
 
     ORDENAR EL CODIGO
-        ELIMINAR FUNCIONES INNECESARIAS EXTRA
         MEJORAR PARTE DE MENU PRINCIPAL
 
     
