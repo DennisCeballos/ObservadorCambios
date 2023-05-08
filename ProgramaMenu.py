@@ -332,12 +332,9 @@ LISTADO DE COSAS QUE FALTAN:
 
     Hacer infalible el guardado de archivos
         Que se cree el file en caso ne exista
-
-    ORDENAR EL CODIGO
-        MEJORAR PARTE DE MENU PRINCIPAL
-
     
     Se vienen cositas:
+     > PERMITIR REINICIAR UN MISMO OBSERVADOR
      > Cambiar las opciones de trabajo del Observador (que quiza pueda ESPERAR A VER un color)
      > Tener un menu completo con acciones y observaciones
 '''
