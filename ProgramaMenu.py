@@ -93,8 +93,14 @@ class Accionador:
             archivo = open( DIR_ARCHIVO, "w")
             #Reemplaza toda la info con los datos alterados
             archivo.writelines( lista )
-
             archivo.close()
+
+            print("----- Se guardaron los siguientes datos ")
+            print( "Un accionador que:")
+            if (self.tipo=="a"):
+                print(" > Mostrara un mensaje en pantalla con la frase: " + self.palabras)
+            elif(self.tipo=="b"):
+                print(" > Abrira un enlace en el navegador: " + self.palabras)
 
         except Exception as e:
             print("Hubo un error al guardar predeterminado en el Accionador")
@@ -149,6 +155,10 @@ class Observador:
             #Reemplaza toda la info con los datos alterados
             archivo.writelines( lista )
 
+            print("----- Se guardaron los siguientes datos ")
+            print( "Ubicacion:   " + str(self.ubcX) + "," + str(self.ubcY) )
+            print( "Colores RGB: (" + str(self.cR) + ", " + str(self.cG) + ", " + str(self.cB) + ")" )
+
             archivo.close()
 
         except Exception as e:
@@ -170,34 +180,6 @@ class bcolors:
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
     END = '\033[0m'
-
-#           ------BORRAR
-#Son funciones que HAY QUE BORRAR (solo estan para hacerme recordar como grabar en txt xddddd)
-def guardarTexto():
-    archivo = open("noBorrar.txt", "w")
-    archivo.write("Esto se esta escribiendo en el textFile \n")
-    archivo.write("Importante no olvidarse de cerrar el file \n")
-    lineas = [1,2,3,4]
-    for i in lineas:
-        archivo.write(str(i)+ "\n")
-    archivo.close()
-def guardarTexto2():
-    archivo = open("noBorrar.txt", "r")
-    lista = archivo.readlines()
-    lista[1] = "a\n"
-    lista[2] = "hola\n"
-    archivo = open("noBorrar.txt", "w")
-    archivo.writelines( lista )
-    archivo.close()
-def leerTexto():
-    archivo = open("noBorrar.txt","r")
-    lista = archivo.readlines()
-    print(lista)
-    for i in range( len(lista) ) :
-        lista[i] = lista[i].removesuffix("\n")
-    print(lista)
-    archivo.close()
-#           ------BORRAR
 
 
 #Muestra el Menu de Cambios
@@ -268,6 +250,7 @@ def pasosCrearAccionador():
 
     #Se crea el objeto accionador con los datos ingresados
     return Accionador(entrada, palabra)
+
 
 
 #Muestra el menu de inicio
@@ -370,21 +353,12 @@ def MenuInicio():
     #Caso se meta a la seccion de crear un Observador predeterminado
     elif entrada == 3:
         observer = pasosCrearObservador()
-        print("----- Se guardaron los siguientes datos ")
-        print( "Ubicacion:   " + str(observer.ubcX) + "," + str(observer.ubcY) )
-        print( "Colores RGB: (" + str(observer.cR) + ", " + str(observer.cG) + ", " + str(observer.cB) + ")" )
         observer.GuardarPredeterminado()
 
     #Caso se meta a la seccion de crear un Accionador predeterminado
     elif entrada == 4:
         accioner = pasosCrearAccionador()
-        print("----- Se guardaron los siguientes datos ")
-        print( "Un accionador que:")
-        if (accioner.tipo=="a"):
-            print(" > Mostrara un mensaje en pantalla con la frase: " + accioner.palabras)
-        elif(accioner.tipo=="b"):
-            print(" > Abrira un enlace en el navegador: " + accioner.palabras)
-        
+        accioner.GuardarPredeterminado()
 
     elif entrada == 5:
         print("Este es un secretito para el futuro")
