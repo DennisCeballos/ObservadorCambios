@@ -67,6 +67,7 @@ class Accionador:
             elif self.tipo=="b":
                 webbrowser.open(url=self.palabras)
 
+#Esta es una clase cuyo objetivo es mostrar
 class Observador:
     def __init__(self, ubcX, ubcY, color1, color2, color3, accion):
         self.ubcX = ubcX
